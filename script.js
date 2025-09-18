@@ -1,14 +1,14 @@
-// Slider üçün sadə script
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slider img");
+let slides = document.querySelectorAll(".slider img");
+let currentIndex = 0;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === index);
+    slide.classList.remove("active");
+    if (i === index) slide.classList.add("active");
   });
 }
 
 setInterval(() => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
 }, 4000);
