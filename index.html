@@ -3,75 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SASHA FIERCE</title>
+  <title>SASHA FIERCE Shoes</title>
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Luxury fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <!-- HEADER -->
   <header>
-    <div class="brand-title">SASHA FIERCE</div>
+    <div class="brand-logo">
+      <img src="images/logo-sasha-fierce.png" alt="SASHA FIERCE Logo">
+    </div>
 
-    <nav>
+    <p class="mission">
+      Empowering women to walk boldly, confidently, and unapologetically fierce.  
+      Redefining elegance with strength, where every step tells a story of power and beauty.
+    </p>
+
+    <!-- Navigation -->
+    <div class="burger" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
       <ul>
-        <li><a href="#">Search</a></li>
-        <li><a href="#">New Arrivals</a></li>
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
         <li><a href="#">Stilettos</a></li>
         <li><a href="#">Sandals</a></li>
+        <li><a href="#">Boots</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- SLIDESHOW -->
+  <section class="slideshow">
+    <div class="slide fade">
+      <img src="images/slide1.jpg" alt="High Fashion Stiletto">
+      <div class="caption">Walk Fierce, Walk Free</div>
+    </div>
+    <div class="slide fade">
+      <img src="images/slide2.jpg" alt="Luxury Sandals">
+      <div class="caption">Elegance with Power</div>
+    </div>
+    <div class="slide fade">
+      <img src="images/slide3.jpg" alt="Exclusive Boots">
+      <div class="caption">Unapologetically Bold</div>
+    </div>
+  </section>
+
   <!-- GALLERY -->
   <main class="gallery">
-
     <div class="product">
-      <img src="images/black-redbottom1.jpg" alt="Black Red Bottom Stiletto - Side">
-      <p>Black Red Bottom Stiletto</p>
+      <img src="images/black-redbottom1.jpg" alt="Black Red Bottom Stiletto">
+      <div class="info">
+        <p>Black Red Bottom Stiletto</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
     </div>
 
     <div class="product">
-      <img src="images/black-redbottom2.jpg" alt="Black Red Bottom Stiletto - Front">
-      <p>Black Red Bottom Stiletto</p>
-    </div>
-
-    <div class="product">
-      <img src="images/black-redbottom3.jpg" alt="Black Red Bottom Stiletto - Styled">
-      <p>Black Red Bottom Stiletto</p>
+      <img src="images/black-redbottom2.jpg" alt="Black Red Bottom Stiletto">
+      <div class="info">
+        <p>Black Red Bottom Stiletto</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
     </div>
 
     <div class="product">
       <img src="images/red-tights.jpg" alt="Red Tights Look">
-      <p>Red Tights Look</p>
+      <div class="info">
+        <p>Red Tights Look</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
     </div>
 
     <div class="product">
-      <img src="images/cake-heel.jpg" alt="Cake Heel">
-      <p>Cake Scene Heel</p>
-    </div>
-
-    <div class="product">
-      <img src="images/yellow-flat.jpg" alt="Yellow Transparent Flats">
-      <p>Yellow Transparent Flats</p>
+      <img src="images/cake-heel.jpg" alt="Cake Scene Heel">
+      <div class="info">
+        <p>Cake Scene Heel</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
     </div>
 
     <div class="product">
       <img src="images/snakeskin-stiletto.jpg" alt="Snakeskin Stiletto">
-      <p>Snakeskin Stiletto</p>
+      <div class="info">
+        <p>Snakeskin Stiletto</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
     </div>
-
-    <div class="product">
-      <img src="images/crystal-stiletto.jpg" alt="Crystal Stiletto">
-      <p>Crystal Stiletto</p>
-    </div>
-
   </main>
 
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 SASHA FIERCE. All rights reserved.</p>
+    <div class="socials">
+      <a href="#"><img src="images/icon-instagram.png" alt="Instagram"></a>
+      <a href="#"><img src="images/icon-facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="images/icon-twitter.png" alt="Twitter"></a>
+    </div>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    // SLIDESHOW SCRIPT
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 4000); // hər 4 saniyədən bir dəyişir
+    }
+  </script>
 </body>
 </html>

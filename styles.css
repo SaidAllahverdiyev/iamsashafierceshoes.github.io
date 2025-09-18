@@ -1,69 +1,158 @@
-body {
-  font-family: 'Playfair Display', serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-  color: #000;
-}
 
-/* Brand title */
-header .brand-title {
-  font-family: 'Cinzel', serif;
-  font-size: 3.5em;
-  font-weight: 700;
-  letter-spacing: 4px;
-  text-align: center;
-  margin: 20px 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SASHA FIERCE Shoes</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-/* Menu */
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 0;
-  margin: 0 0 30px 0;
-}
+  <!-- HEADER -->
+  <header>
+    <div class="brand-logo">
+      <img src="images/logo-sasha-fierce.png" alt="SASHA FIERCE Logo">
+    </div>
 
-nav a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
-  font-size: 1em;
-  text-transform: uppercase;
-}
+    <p class="mission">
+      Empowering women to walk boldly, confidently, and unapologetically fierce.  
+      Redefining elegance with strength, where every step tells a story of power and beauty.
+    </p>
 
-nav a:hover {
-  border-bottom: 1px solid #000;
-}
+    <!-- Navigation -->
+    <div class="burger" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
+      <ul>
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+        <li><a href="#">Stilettos</a></li>
+        <li><a href="#">Sandals</a></li>
+        <li><a href="#">Boots</a></li>
+      </ul>
+    </nav>
+  </header>
 
-/* Gallery grid */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  padding: 40px;
-}
+  <!-- SLIDESHOW -->
+  <section class="slideshow">
+    <div class="slide fade">
+      <img src="images/slide1.jpg" alt="High Fashion Stiletto">
+      <div class="caption">Walk Fierce, Walk Free</div>
+    </div>
+    <div class="slide fade">
+      <img src="images/slide2.jpg" alt="Luxury Sandals">
+      <div class="caption">Elegance with Power</div>
+    </div>
+    <div class="slide fade">
+      <img src="images/slide3.jpg" alt="Exclusive Boots">
+      <div class="caption">Unapologetically Bold</div>
+    </div>
+  </section>
 
-.product img {
+  <!-- GALLERY -->
+  <main class="gallery">
+    <div class="product">
+      <img src="images/black-redbottom1.jpg" alt="Black Red Bottom Stiletto">
+      <div class="info">
+        <p>Black Red Bottom Stiletto</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="images/black-redbottom2.jpg" alt="Black Red Bottom Stiletto">
+      <div class="info">
+        <p>Black Red Bottom Stiletto</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="images/red-tights.jpg" alt="Red Tights Look">
+      <div class="info">
+        <p>Red Tights Look</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="images/cake-heel.jpg" alt="Cake Scene Heel">
+      <div class="info">
+        <p>Cake Scene Heel</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="images/snakeskin-stiletto.jpg" alt="Snakeskin Stiletto">
+      <div class="info">
+        <p>Snakeskin Stiletto</p>
+        <button class="shop-btn">Shop Now</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 SASHA FIERCE. All rights reserved.</p>
+    <div class="socials">
+      <a href="#"><img src="images/icon-instagram.png" alt="Instagram"></a>
+      <a href="#"><img src="images/icon-facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="images/icon-twitter.png" alt="Twitter"></a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    // SLIDESHOW SCRIPT
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 4000); // hər 4 saniyədən bir dəyişir
+    }
+  </script>
+</body>
+</html>
+
+/* SLIDESHOW */
+.slideshow {
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto 40px;
+}
+.slide {
+  display: none;
+  position: relative;
+}
+.slide img {
   width: 100%;
-  height: auto;
-  border: 1px solid #ccc;
+  height: 500px;
+  object-fit: cover;
 }
-
-.product p {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 1.1em;
-  font-family: 'Playfair Display', serif;
+.caption {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 2em;
+  font-weight: 700;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.7);
 }
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid #ccc;
-  margin-top: 40px;
-  font-size: 0.9em;
+.fade {
+  animation: fadeEffect 1.5s;
+}
+@keyframes fadeEffect {
+  from {opacity: 0.4} 
+  to {opacity: 1}
 }
